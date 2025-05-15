@@ -174,3 +174,92 @@ const filteredCharacters = characters
             </div>
           </div>
         )}
+        {/* Lijst met gefilterde karakters */}
+      <h2 style={{ fontSize: '20px', fontWeight: 'bold', color: '#2d3748' }}>Alle Karakters (Pagina {page})</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '10px' }}>
+        {filteredCharacters.length > 0 ? (
+          filteredCharacters.map((character) => (
+            <div
+              key={character.id}
+              style={{
+                border: '1px solid #ddd',
+                borderRadius: '5px',
+                padding: '10px',
+                backgroundColor: '#fff',
+                width: 'calc(16.666% - 16.67px)',
+                boxSizing: 'border-box',
+              }}
+            >
+              <img
+                src={character.image}
+                alt={character.name}
+                style={{ width: '100px', height: '100px', borderRadius: '50%', display: 'block', margin: '0 auto' }}
+              />
+              <div style={{ textAlign: 'center' }}>
+                <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#2d3748' }}>{character.name}</h3>
+                <p><strong>Status:</strong> {character.status}</p>
+                <p><strong>Species:</strong> {character.species}</p>
+                <p><strong>Gender:</strong> {character.gender}</p>
+                <p><strong>Location:</strong> {character.location.name}</p>
+                <p><strong>Origin:</strong> {character.origin.name}</p>
+              </div>
+              <button
+                onClick={() => toggleFavorite(character.id)}
+                style={{
+                  padding: '5px 10px',
+                  backgroundColor: favorites.includes(character.id) ? '#ff4d4d' : '#4CAF50',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                  display: 'block',
+                  margin: '10px auto 0',
+                }}
+              >
+                {favorites.includes(character.id) ? 'Verwijder Favoriet' : 'Voeg toe als Favoriet'}
+              </button>
+            </div>
+          ))
+        ) : (
+          <p>Geen karakters gevonden.</p>
+        )}
+      </div>
+
+      {/* Paginering */}
+      <div id="pagination" style={{ marginTop: '20px', display: 'flex', gap: '10px', justifyContent: 'center' }}>
+        <button
+          onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+          disabled={page === 1}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: page === 1 ? '#ccc' : '#007BFF',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: page === 1 ? 'not-allowed' : 'pointer',
+          }}
+        >
+          Vorige
+        </button>
+        <span style={{ padding: '8px' }}>
+          Pagina {page} of {totalPages}
+        </span>
+        <button
+          onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={page === totalPages}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: page === totalPages ? '#ccc' : '#007BFF',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: page === totalPages ? 'not-allowed' : 'pointer',
+          }}
+        >
+          Volgende
+        </button>
+      </div>
+    </div>
+  );
+
+  export default App;
