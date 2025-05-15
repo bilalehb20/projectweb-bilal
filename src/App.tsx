@@ -77,3 +77,100 @@ const filteredCharacters = characters
       return sortOrder === 'asc' ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);
     }
   });
+  const favoriteCharacters = characters.filter((character) =>
+    favorites.includes(character.id)
+  );
+  
+  if (loading) return <div style={{ padding: '20px', color: '#1f2937' }}>Laden...</div>;
+  
+  function App() {
+    return (
+      <div style={{
+        padding: '20px',
+        backgroundColor: theme === 'light' ? '#f3f4f6' : '#1f2937',
+        color: theme === 'light' ? '#1f2937' : '#f3f4f6',
+        fontFamily: 'Arial, sans-serif',
+        transition: 'all 0.3s',
+      }}>
+        <button
+          onClick={toggleTheme}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: theme === 'light' ? '#007BFF' : '#4CAF50',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            marginBottom: '20px',
+          }}
+        >
+          Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+        </button>
+        {/* Filters */}
+        <div style={{ margin: '20px 0', display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <input
+            type="text"
+            placeholder="Zoek op naam..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            style={{ padding: '8px', width: '300px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '16px' }}
+          />
+          <select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            style={{ padding: '8px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '16px' }}
+          >
+            <option value="">Alle Statussen</option>
+            <option value="Alive">Alive</option>
+            <option value="Dead">Dead</option>
+            <option value="unknown">Unknown</option>
+          </select>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as 'name' | 'status')}
+            style={{ padding: '8px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '16px' }}
+          >
+            <option value="name">Sorteer op Naam</option>
+            <option value="status">Sorteer op Status</option>
+          </select>
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}
+            style={{ padding: '8px', border: '1px solid #ddd', borderRadius: '5px', fontSize: '16px' }}
+          >
+            <option value="asc">Oplopend</option>
+            <option value="desc">Aflopend</option>
+          </select>
+        </div>
+  
+        {/* Favoriete karakters */}
+        {favoriteCharacters.length > 0 && (
+          <div style={{ marginBottom: '30px' }}>
+            <h2 style={{ fontSize: '20px', fontWeight: 'bold', color: '#2d3748' }}>Favoriete Karakters</h2>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '10px' }}>
+              {favoriteCharacters.map((character) => (
+                <div
+                  key={character.id}
+                  style={{
+                    border: '1px solid #ddd',
+                    borderRadius: '5px',
+                    padding: '10px',
+                    backgroundColor: '#e6f3fa',
+                    width: 'calc(16.666% - 16.67px)',
+                    boxSizing: 'border-box',
+                  }}
+                >
+                  <img
+                    src={character.image}
+                    alt={character.name}
+                    style={{ width: '80px', height: '80px', borderRadius: '50%', display: 'block', margin: '0 auto' }}
+                  />
+                  <div style={{ textAlign: 'center' }}>
+                    <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#2d3748' }}>{character.name}</h3>
+                    <p><strong>Status:</strong> {character.status}</p>
+                    <p><strong>Species:</strong> {character.species}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
