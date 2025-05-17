@@ -166,3 +166,17 @@ function App() {
     setFavorites(updatedFavorites);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
+
+const toggleTheme = (): void => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement>) => {
+    if (e.type === 'click') {
+      setSearchTerm(inputValue);
+    } else if (e.type === 'keydown' && 'key' in e && (e as React.KeyboardEvent<HTMLInputElement>).key === 'Enter') {
+      setSearchTerm(inputValue);
+    }
+  };
