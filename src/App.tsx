@@ -216,4 +216,28 @@ const resetState = () => {
     const translationKey = `${key}${value.replace(/\s/g, '')}`; // Bijv. statusAlive, locationAbadango
     return t[translationKey as keyof typeof t] || value; // Val terug op originele waarde als vertaling niet bestaat
   };
-  
+
+  return (
+    <div className={`app-container ${theme}`}>
+      {/* Header met logo en zoekbalk */}
+      <header className="app-header">
+        <img
+          src={logo}
+          alt={t.logoAlt} // Vertaalde alt-tekst voor logo
+          className="logo"
+          onClick={resetState} // Reset bij klik op logo
+        />
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder={t.searchPlaceholder}
+            value={inputValue}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setInputValue(e.target.value)}
+            onKeyDown={handleSearch}
+            className="search-bar"
+          />
+          <button onClick={handleSearch} className="search-button">
+            {t.searchButton}
+          </button>
+        </div>
+      </header>
