@@ -180,3 +180,17 @@ const toggleTheme = (): void => {
       setSearchTerm(inputValue);
     }
   };
+
+const resetState = () => {
+    setSearchTerm(''); // Reset zoekterm
+    setInputValue(''); // Reset invoerveld
+    setStatusFilter(''); // Reset statusfilter
+    setPage(1); // Reset pagina naar 1
+    setView('home'); // Zorg dat de view naar Home gaat
+  };
+
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newLanguage = e.target.value;
+    setLanguage(newLanguage);
+    localStorage.setItem('language', newLanguage);
+  };
