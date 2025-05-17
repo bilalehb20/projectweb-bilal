@@ -158,3 +158,11 @@ function App() {
     if (savedLanguage) setLanguage(savedLanguage);
     else localStorage.setItem('language', language); // Sla standaardtaal op
   }, [page]);
+  
+  const toggleFavorite = (id: number): void => {
+    const updatedFavorites = favorites.includes(id)
+      ? favorites.filter((favId) => favId !== id)
+      : [...favorites, id];
+    setFavorites(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
