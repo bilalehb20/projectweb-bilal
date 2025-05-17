@@ -273,4 +273,36 @@ const resetState = () => {
           </button>
         </div>
       </div>
-      
+
+       {/* Inhoud op basis van view */}
+      {view === 'home' ? (
+        <>
+          <div className="filters">
+            <select
+              value={statusFilter}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setStatusFilter(e.target.value)}
+            >
+              <option value="">{t.allStatuses}</option>
+              <option value="Alive">{translateCharacterData('status', 'Alive')}</option>
+              <option value="Dead">{translateCharacterData('status', 'Dead')}</option>
+              <option value="unknown">{translateCharacterData('status', 'unknown')}</option>
+            </select>
+            <select
+              value={sortBy}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                setSortBy(e.target.value as 'name' | 'status')
+              }
+            >
+              <option value="name">{t.sortByName}</option>
+              <option value="status">{t.sortByStatus}</option>
+            </select>
+            <select
+              value={sortOrder}
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+                setSortOrder(e.target.value as 'asc' | 'desc')
+              }
+            >
+              <option value="asc">{t.asc}</option>
+              <option value="desc">{t.desc}</option>
+            </select>
+          </div>
