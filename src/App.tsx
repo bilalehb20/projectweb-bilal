@@ -241,3 +241,36 @@ const resetState = () => {
           </button>
         </div>
       </header>
+
+      {/* Navigatie */}
+      <nav className="nav-bar">
+        <button onClick={resetState} className={view === 'home' ? 'active' : ''}>
+          {t.home}
+        </button>
+        <button onClick={() => setView('favorites')} className={view === 'favorites' ? 'active' : ''}>
+          {t.favorites}
+        </button>
+      </nav>
+
+      {/* Gebruikersvoorkeuren */}
+      <div className="preferences-section">
+        <div className="preferences-options">
+          <button onClick={resetState} className="preference-button">
+            {t.home}
+          </button>
+          <button onClick={() => setView('favorites')} className="preference-button">
+            {t.favorites}
+          </button>
+          <label className="language-label">
+            {t.language}
+            <select value={language} onChange={handleLanguageChange}>
+              <option value="nl">{language === 'nl' ? 'Nederlands' : 'Dutch'}</option>
+              <option value="en">{language === 'nl' ? 'Engels' : 'English'}</option>
+            </select>
+          </label>
+          <button onClick={toggleTheme} className="theme-toggle">
+            {theme === 'light' ? t.darkMode : t.lightMode}
+          </button>
+        </div>
+      </div>
+      
