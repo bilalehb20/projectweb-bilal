@@ -194,3 +194,26 @@ const resetState = () => {
     setLanguage(newLanguage);
     localStorage.setItem('language', newLanguage);
   };
+
+  const filteredCharacters = characters
+    .filter(
+      (character) =>
+        character.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (statusFilter === '' || character.status.toLowerCase() === statusFilter.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortBy === 'name') {
+        return sortOrder === 'asc' ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name);
+      }
+      return sortOrder === 'asc' ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);
+    });
+
+  const favoriteCharacters = characters.filter((character) => favorites.includes(character.id));
+
+  const t = translations[language as 'nl' | 'en'];
+
+  const translateCharacterData = (key: string, value: string) => {
+    const translationKey = `${key}${value.replace(/\s/g, '')}`; // Bijv. statusAlive, locationAbadango
+    return t[translationKey as keyof typeof t] || value; // Val terug op originele waarde als vertaling niet bestaat
+  };
+  
