@@ -117,3 +117,32 @@ en: {
     characterImageAltPrefix: 'Image of', // Voor "Image of [character.name]"
   },
 };
+function App() {
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>(''); // Voor zoekinvoer
+  const [favorites, setFavorites] = useState<number[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(1);
+  const [statusFilter, setStatusFilter] = useState<string>('');
+  const [sortBy, setSortBy] = useState<'name' | 'status'>('name');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [view, setView] = useState<'home' | 'favorites'>('home');
+  const [language, setLanguage] = useState<string>('nl'); // Voor taalkeuze
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
+        const data = await response.json();
+        setCharacters(data.results as Character[]);
+        setTotalPages(data.info.pages as number);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        setLoading(false);
+      }
+    };
