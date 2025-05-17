@@ -146,3 +146,15 @@ function App() {
         setLoading(false);
       }
     };
+     fetchData();
+
+    const savedFavorites = localStorage.getItem('favorites');
+    if (savedFavorites) setFavorites(JSON.parse(savedFavorites) as number[]);
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) setTheme(savedTheme as 'light' | 'dark');
+
+    const savedLanguage = localStorage.getItem('language');
+    if (savedLanguage) setLanguage(savedLanguage);
+    else localStorage.setItem('language', language); // Sla standaardtaal op
+  }, [page]);
