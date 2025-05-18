@@ -49,3 +49,25 @@ app-header.dark {
 .logo:hover {
   transform: scale(1.1);
 }
+
+/* Zoekcontainer */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-bar {
+  padding: 10px;
+  width: 250px;
+  border: 2px solid #3b82f6;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
