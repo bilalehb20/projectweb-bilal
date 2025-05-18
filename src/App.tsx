@@ -306,3 +306,33 @@ const resetState = () => {
               <option value="desc">{t.desc}</option>
             </select>
           </div>
+
+          <div className="character-section">
+            <h2>{t.allCharacters} {page})</h2>
+            <div className="character-list">
+              {filteredCharacters.length > 0 ? (
+                filteredCharacters.map((character) => (
+                  <div key={character.id} className="character-card">
+                    <img
+                      src={character.image}
+                      alt={`${t.characterImageAltPrefix} ${character.name}`} // Vertaalde alt-tekst voor karakterafbeeldingen
+                    />
+                    <h3>{character.name}</h3>
+                    <p><strong>{t.status}:</strong> {translateCharacterData('status', character.status)}</p>
+                    <p><strong>{t.species}:</strong> {translateCharacterData('species', character.species)}</p>
+                    <p><strong>{t.gender}:</strong> {translateCharacterData('gender', character.gender)}</p>
+                    <p><strong>{t.location}:</strong> {translateCharacterData('location', character.location.name)}</p>
+                    <p><strong>{t.origin}:</strong> {translateCharacterData('origin', character.origin.name)}</p>
+                    <span
+                      onClick={() => toggleFavorite(character.id)}
+                      className={`favorite-star ${favorites.includes(character.id) ? 'selected' : ''}`}
+                    >
+                      {favorites.includes(character.id) ? '★' : '☆'}
+                    </span>
+                  </div>
+                ))
+              ) : (
+                <p className="no-results">{t.noCharacters}</p>
+              )}
+            </div>
+          </div>
