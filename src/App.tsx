@@ -336,3 +336,50 @@ const resetState = () => {
               )}
             </div>
           </div>
+
+           <div className="pagination">
+            <button onClick={() => setPage((prev) => Math.max(prev - 1, 1))} disabled={page === 1}>
+              {t.previous}
+            </button>
+            <span>{t.pageOf} {page} van {totalPages}</span>
+            <button onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))} disabled={page === totalPages}>
+              {t.next}
+            </button>
+          </div>
+        </>
+      ) : (
+        <div className="favorites-section">
+          <h2>{t.myFavoriteCharacters}</h2>
+          {favoriteCharacters.length > 0 ? (
+            <div className="character-list">
+              {favoriteCharacters.map((character) => (
+                <div key={character.id} className="character-card">
+                  <img
+                    src={character.image}
+                    alt={`${t.characterImageAltPrefix} ${character.name}`} // Vertaalde alt-tekst voor karakterafbeeldingen
+                  />
+                  <h3>{character.name}</h3>
+                  <p><strong>{t.status}:</strong> {translateCharacterData('status', character.status)}</p>
+                  <p><strong>{t.species}:</strong> {translateCharacterData('species', character.species)}</p>
+                  <p><strong>{t.gender}:</strong> {translateCharacterData('gender', character.gender)}</p>
+                  <p><strong>{t.location}:</strong> {translateCharacterData('location', character.location.name)}</p>
+                  <p><strong>{t.origin}:</strong> {translateCharacterData('origin', character.origin.name)}</p>
+                  <span
+                    onClick={() => toggleFavorite(character.id)}
+                    className={`favorite-star ${favorites.includes(character.id) ? 'selected' : ''}`}
+                  >
+                    {favorites.includes(character.id) ? '★' : '☆'}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="no-results">{t.noFavorites}</p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
