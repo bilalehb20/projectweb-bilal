@@ -35,3 +35,17 @@ body {
   border-radius: 10px;
   margin-bottom: 20px;
 }
+
+app-header.dark {
+  background-color: rgba(30, 41, 59, 0.9);
+}
+
+.logo {
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
