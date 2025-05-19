@@ -94,3 +94,27 @@ app-header.dark {
 .app-container.dark .search-button:hover {
   background-color: #16a34a;
 }
+
+/* Thema-toggle knop */
+.theme-toggle {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #3b82f6;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: #1d4ed8;
+}
+
+.app-container.dark .theme-toggle {
+  background-color: #22c55e;
+}
+
+.app-container.dark .theme-toggle:hover {
+  background-color: #16a34a;
+}
