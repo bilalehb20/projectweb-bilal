@@ -71,3 +71,18 @@ app-header.dark {
   border-color: #1d4ed8;
   box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
 }
+
+.search-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #3b82f6;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #1d4ed8;
+}
