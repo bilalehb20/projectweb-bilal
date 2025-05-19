@@ -118,3 +118,32 @@ app-header.dark {
 .app-container.dark .theme-toggle:hover {
   background-color: #16a34a;
 }
+
+
+/* Navigatie */
+.nav-bar {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.nav-bar button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-bar button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.nav-bar button.active {
+  background-color: #1e40af;
+}
+
