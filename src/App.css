@@ -147,3 +147,37 @@ app-header.dark {
   background-color: #1e40af;
 }
 
+/* Filters */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filters select {
+  padding: 10px;
+  border: 2px solid #3b82f6;
+  border-radius: 25px;
+  font-size: 16px;
+  background-color: white;
+  color: #1e3a8a;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filters select:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+.app-container.dark .filters select {
+  background-color: #1e293b;
+  color: #e0f2fe;
+  border-color: #22c55e;
+}
+
+.app-container.dark .filters select:focus {
+  border-color: #16a34a;
+}
