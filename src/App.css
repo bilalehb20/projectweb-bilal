@@ -86,3 +86,11 @@ app-header.dark {
 .search-button:hover {
   background-color: #1d4ed8;
 }
+
+.app-container.dark .search-button {
+  background-color: #22c55e;
+}
+
+.app-container.dark .search-button:hover {
+  background-color: #16a34a;
+}
