@@ -242,3 +242,21 @@ app-header.dark {
 .app-container.dark .character-card img {
   border-color: #22c55e;
 }
+
+/* Favoriet ster-icoon */
+.favorite-star {
+  position: absolute;
+  bottom: 10px; /* Verplaatst naar onder */
+  right: 10px;  /* Verplaatst naar rechts */
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.favorite-star.selected {
+  color: #f59e0b;
+}
+
+.favorite-star:not(.selected) {
+  color: #9ca3af;
+}
