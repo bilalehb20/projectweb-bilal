@@ -260,3 +260,25 @@ app-header.dark {
 .favorite-star:not(.selected) {
   color: #9ca3af;
 }
+
+/* Tekst in karakterkaart */
+.character-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1e3a8a;
+}
+
+.app-container.dark .character-card h3 {
+  color: #e0f2fe;
+}
+
+.character-card p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #4b5563;
+}
+
+.app-container.dark .character-card p {
+  color: #d1d5db;
+}
