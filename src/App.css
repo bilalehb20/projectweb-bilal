@@ -320,3 +320,70 @@ app-header.dark {
 .app-container.dark .pagination span {
   color: #e0f2fe;
 }
+
+/* Gebruikersvoorkeuren */
+.preferences-section {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #ffffff; /* Witte balk */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.preferences-options {
+  display: flex;
+  gap: 20px; /* Afstand tussen elementen */
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; /* Van links naar rechts */
+}
+
+.preferences-options button.preference-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: #3b82f6;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.preferences-options button.preference-button:hover {
+  background-color: #1d4ed8;
+}
+
+.app-container.dark .preferences-options button.preference-button {
+  background-color: #22c55e;
+}
+
+.app-container.dark .preferences-options button.preference-button:hover {
+  background-color: #16a34a;
+}
+
+.preferences-options label.language-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #1e3a8a;
+  font-weight: 600; /* Maak het label vetter */
+}
+
+.app-container.dark .preferences-options label.language-label {
+  color: #ffffff; /* Witte tekst in donkere modus */
+}
+
+.preferences-options select {
+  padding: 8px;
+  border: 2px solid #3b82f6;
+  border-radius: 25px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.app-container.dark .preferences-options select {
+  background-color: #1e293b;
+  border-color: #22c55e;
+  color: #e0f2fe;
+}
+
