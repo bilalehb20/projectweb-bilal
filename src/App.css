@@ -282,3 +282,41 @@ app-header.dark {
 .app-container.dark .character-card p {
   color: #d1d5db;
 }
+
+/* Paginering */
+.pagination {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #3b82f6;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: #1d4ed8;
+}
+
+.pagination button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  padding: 10px;
+  font-size: 16px;
+  color: #1e3a8a;
+}
+
+.app-container.dark .pagination span {
+  color: #e0f2fe;
+}
