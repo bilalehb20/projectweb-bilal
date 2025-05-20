@@ -387,3 +387,16 @@ app-header.dark {
   color: #e0f2fe;
 }
 
+/* Loading en geen-resultaten melding */
+.loading,
+.no-results {
+  text-align: center;
+  font-size: 18px;
+  margin: 20px 0;
+  color: #ef4444;
+}
+
+.app-container.dark .loading,
+.app-container.dark .no-results {
+  color: #f87171;
+}
