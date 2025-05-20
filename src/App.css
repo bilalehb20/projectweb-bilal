@@ -400,3 +400,59 @@ app-header.dark {
 .app-container.dark .no-results {
   color: #f87171;
 }
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .character-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4 kolommen op middelgrote schermen */
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters select {
+    width: 100%;
+  }
+
+  .character-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 kolommen op kleine schermen */
+  }
+
+  .preferences-options {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-bar button {
+    width: 100%;
+  }
+
+  .character-list {
+    grid-template-columns: 1fr; /* 1 kolom op zeer kleine schermen */
+  }
+}
