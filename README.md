@@ -222,7 +222,8 @@ Open browserGa naar http://localhost:5173 (of wat Vite zegt).
 
 🖼️ Screenshots applicatie en chat
 [favortieten](/src/assets/images/favorieten.png)
-[home-donker](src/assets/images/home-donker.png)
+![Screenshot 2025-05-22 160617](https://github.com/user-attachments/assets/68171fa9-f9ad-445b-819f-3d04a329fb2c)
+
 [home-licht](src/assets/images/home-licht.png)
 [vraag](src/assets/images/vraag.png)
 [vraag2](src/assets/images/vraag2.png)
