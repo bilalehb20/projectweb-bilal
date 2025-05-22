@@ -36,7 +36,7 @@ body {
   margin-bottom: 20px;
 }
 
-.app-header.dark {
+app-header.dark {
   background-color: rgba(30, 41, 59, 0.9);
 }
 

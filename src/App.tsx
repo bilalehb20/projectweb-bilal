@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import logo from './assets/logo.jpg';
+
 interface Character {
   id: number;
   name: string;
@@ -11,6 +12,7 @@ interface Character {
   location: { name: string };
   origin: { name: string };
 }
+
 const translations = {
   nl: {
     searchPlaceholder: 'Zoek op naam...',
@@ -129,6 +131,7 @@ function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [view, setView] = useState<'home' | 'favorites'>('home');
   const [language, setLanguage] = useState<string>('nl'); // Voor taalkeuze
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -144,14 +147,18 @@ function App() {
       }
     };
      fetchData();
+
     const savedFavorites = localStorage.getItem('favorites');
     if (savedFavorites) setFavorites(JSON.parse(savedFavorites) as number[]);
+
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) setTheme(savedTheme as 'light' | 'dark');
+
     const savedLanguage = localStorage.getItem('language');
     if (savedLanguage) setLanguage(savedLanguage);
     else localStorage.setItem('language', language); // Sla standaardtaal op
   }, [page]);
+  
   const toggleFavorite = (id: number): void => {
     const updatedFavorites = favorites.includes(id)
       ? favorites.filter((favId) => favId !== id)
@@ -159,11 +166,13 @@ function App() {
     setFavorites(updatedFavorites);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
+
 const toggleTheme = (): void => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
   };
+
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement> | React.MouseEvent<HTMLButtonElement>) => {
     if (e.type === 'click') {
       setSearchTerm(inputValue);
@@ -171,6 +180,7 @@ const toggleTheme = (): void => {
       setSearchTerm(inputValue);
     }
   };
+
 const resetState = () => {
     setSearchTerm(''); // Reset zoekterm
     setInputValue(''); // Reset invoerveld
@@ -178,11 +188,13 @@ const resetState = () => {
     setPage(1); // Reset pagina naar 1
     setView('home'); // Zorg dat de view naar Home gaat
   };
+
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLanguage = e.target.value;
     setLanguage(newLanguage);
     localStorage.setItem('language', newLanguage);
   };
+
   const filteredCharacters = characters
     .filter(
       (character) =>
@@ -195,18 +207,16 @@ const resetState = () => {
       }
       return sortOrder === 'asc' ? a.status.localeCompare(b.status) : b.status.localeCompare(a.status);
     });
+
   const favoriteCharacters = characters.filter((character) => favorites.includes(character.id));
+
   const t = translations[language as 'nl' | 'en'];
+
   const translateCharacterData = (key: string, value: string) => {
     const translationKey = `${key}${value.replace(/\s/g, '')}`; // Bijv. statusAlive, locationAbadango
     return t[translationKey as keyof typeof t] || value; // Val terug op originele waarde als vertaling niet bestaat
   };
-if (loading) {
-  return <div className="text-center mt-10 text-lg text-gray-600">Loading...</div>;
-}
-if (!characters.length && !loading) {
-  return <div className="text-center mt-10 text-lg text-red-600">Geen personages gevonden of fout bij het laden.</div>;
-}
+
   return (
     <div className={`app-container ${theme}`}>
       {/* Header met logo en zoekbalk */}
@@ -231,6 +241,7 @@ if (!characters.length && !loading) {
           </button>
         </div>
       </header>
+
       {/* Navigatie */}
       <nav className="nav-bar">
         <button onClick={resetState} className={view === 'home' ? 'active' : ''}>
@@ -240,6 +251,7 @@ if (!characters.length && !loading) {
           {t.favorites}
         </button>
       </nav>
+
       {/* Gebruikersvoorkeuren */}
       <div className="preferences-section">
         <div className="preferences-options">
@@ -261,6 +273,7 @@ if (!characters.length && !loading) {
           </button>
         </div>
       </div>
+
        {/* Inhoud op basis van view */}
       {view === 'home' ? (
         <>
@@ -293,6 +306,7 @@ if (!characters.length && !loading) {
               <option value="desc">{t.desc}</option>
             </select>
           </div>
+
           <div className="character-section">
             <h2>{t.allCharacters} {page})</h2>
             <div className="character-list">
@@ -322,6 +336,7 @@ if (!characters.length && !loading) {
               )}
             </div>
           </div>
+
            <div className="pagination">
             <button onClick={() => setPage((prev) => Math.max(prev - 1, 1))} disabled={page === 1}>
               {t.previous}
@@ -366,4 +381,5 @@ if (!characters.length && !loading) {
     </div>
   );
 }
+
 export default App;
