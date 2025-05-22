@@ -222,8 +222,13 @@ Open browserGa naar http://localhost:5173 (of wat Vite zegt).
 
 🖼️ Screenshots applicatie en chat
 [favortieten](/src/assets/images/favorieten.png)
-
-
+[home-donker](src/assets/images/home-donker.png)
+[home-licht](src/assets/images/home-licht.png)
+[vraag](src/assets/images/vraag.png)
+[vraag2](src/assets/images/vraag2.png)
+[vraag3](src/assets/images/vraag3.png)
+[vraag4](src/assets/images/vraag4.png)
+[vraag5](src/assets/images/vraag5.png)
 📚 Gebruikte bronnen
 
 Rick and Morty API - rickandmortyapi.com
