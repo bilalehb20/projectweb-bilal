@@ -221,15 +221,21 @@ Open browserGa naar http://localhost:5173 (of wat Vite zegt).
 
 
 🖼️ Screenshots applicatie en chat
-[favortieten](/src/assets/images/favorieten.png)
+![Screenshot 2025-05-22 160617](https://github.com/user-attachments/assets/873d8e3e-1503-4059-9fed-bc2bed17eb35)
+
 ![Screenshot 2025-05-22 160617](https://github.com/user-attachments/assets/68171fa9-f9ad-445b-819f-3d04a329fb2c)
 
-[home-licht](src/assets/images/home-licht.png)
-[vraag](src/assets/images/vraag.png)
-[vraag2](src/assets/images/vraag2.png)
-[vraag3](src/assets/images/vraag3.png)
-[vraag4](src/assets/images/vraag4.png)
-[vraag5](src/assets/images/vraag5.png)
+![Screenshot 2025-05-22 160714](https://github.com/user-attachments/assets/bf3ceaab-5026-44ac-97cc-d8327df2eb9a)
+
+![Screenshot 2025-05-22 160714](https://github.com/user-attachments/assets/271e9f34-7d08-4687-a2d8-68fd4b10dafa)
+
+![Screenshot 2025-05-22 161927](https://github.com/user-attachments/assets/0d33c560-2997-464c-9040-010c6e0d5913)
+![Screenshot 2025-05-22 162307](https://github.com/user-attachments/assets/6d69dbd9-8ac4-4f56-a2aa-cc15ee931065)
+
+![Screenshot 2025-05-22 162405](https://github.com/user-attachments/assets/b60fdd38-9d83-4e30-a808-f18c6092fc77)
+
+![Screenshot 2025-05-22 162852](https://github.com/user-attachments/assets/9d21d281-fac1-4314-abaa-27a9ce2314e8)
+
 📚 Gebruikte bronnen
 
 Rick and Morty API - rickandmortyapi.com
