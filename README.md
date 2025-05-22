@@ -221,14 +221,7 @@ Open browserGa naar http://localhost:5173 (of wat Vite zegt).
 
 
 🖼️ Screenshots applicatie en chat
-![Screenshot 2025-05-22 160617](https://github.com/user-attachments/assets/58abe17d-9d6d-4257-b43e-a2b23a4aa20e)
-![Screenshot 2025-05-22 160714](https://github.com/user-attachments/assets/08d95e06-b4d0-44ad-8ace-825e75f47acd)
-![Screenshot 2025-05-22 160636](https://github.com/user-attachments/assets/6e34c24b-b726-465a-ab4c-071a08734035)
-![Screenshot 2025-05-22 162852](https://github.com/user-attachments/assets/5f6f1fa8-dd4d-41e5-952c-b8757cff6305)
-![Screenshot 2025-05-22 162405](https://github.com/user-attachments/assets/cb91f79c-37be-4a03-b67f-317d01a7aea0)
-![Screenshot 2025-05-22 162307](https://github.com/user-attachments/assets/914ad813-9ffa-42fa-8b83-8d9c3da514c8)
-![Screenshot 2025-05-22 161927](https://github.com/user-attachments/assets/7e4bbaf5-a217-4dc7-8e4f-d799660a6e61)
-![Screenshot 2025-05-22 161248](https://github.com/user-attachments/assets/c70f44f9-189c-4d34-9584-d75357524a9b)
+[favortieten](/src/assets/images/favorieten.png)
 
 
 📚 Gebruikte bronnen
